@@ -1,0 +1,278 @@
+//Sidebar styling
+
+.sidebar{
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f0f4f9;
+    padding: 25px 15px;
+
+    img{
+        width: 20px;
+    }
+
+    .menu{
+        display: block;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .new-chat{
+        margin-top: 50px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
+        background-color: #e6eaf1;
+        border-radius: 50px;
+        font-size: 14px;
+        color: gray;
+        cursor: pointer;
+
+    }
+    .recent{
+        display: flex;
+        flex-direction: column;
+        animation: fadeIn 1.5s;
+
+    }
+        .recent-title{
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .recent-entry{
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            padding: 10px;
+            padding-right: 40px;
+            border-radius: 50px;
+            color: #282828;
+            cursor: pointer;
+        }
+        .recent-entry:hover{
+            background-color: #e2e6eb;
+        }
+
+    .bottom{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bottom-item{
+        padding-right: 10px;
+        cursor: pointer;
+    }
+}
+
+// Responsive sidebar
+@media (width<=600px) {
+    .sidebar{
+        display: none;
+    }
+}
+
+// Main component styling
+
+
+.main{
+    flex: 1;
+    min-height: 100vh;
+    padding-bottom: 15vh;
+    position: relative;
+
+    .nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 22px;
+        padding: 20px;
+        color: #585858;
+
+        img{
+            width: 40px;
+            border-radius: 50%;
+        }
+    }
+
+    .mainContainer{
+        max-width: 900px;
+        margin: auto;
+
+        .greet{
+            margin: 50px 0px;
+            font-size: 56px;
+            color: #c4c7c5;
+            font-weight: 500;
+            padding: 20px;
+
+            span{
+                background: -webkit-linear-gradient(16deg,#4b90ff,#ff5546);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+            gap: 15px;
+            padding: 20px;
+    
+            .card{
+                height: 200px;
+                padding: 15px;
+                background-color: #f0f4f9;
+                border-radius: 10px;
+                position: relative;
+                cursor: pointer;
+    
+                p{
+                    color: #585858;
+                    font-size: 17px;
+                }
+                
+    
+                img{
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    width: 35px;
+                    padding: 5px;
+                    background-color:#fff;
+                    border-radius: 20px;
+                }
+            }
+            .card:hover{
+                    background-color: #dfe4ea;
+            }
+       }
+
+       .mainBottom{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            max-width: 900px;
+            padding: 0px 20px;
+            margin :auto;
+            
+            .searchBox{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                background-color: #f0f4f9;
+                padding: 10px 20px;
+                border-radius: 50px;
+
+                input{
+                    flex: 1;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    padding: 8px;
+                    font-size: 16px;
+                }
+
+                img{
+                    width: 24px;
+                    cursor: pointer;
+                }
+
+                .imageContainer{
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                }
+            }
+            .bottomInfo{
+                font-size: 13px;
+                margin: 15px auto;
+                text-align: center;
+                font-weight: 300;
+            }
+       }
+
+       // Responsive mainBottom
+        @media (width<=600px) {
+            
+                .searchBox{
+                    padding: 5px 10px;
+
+                    input{
+                        flex: none;
+                        width: 150px;
+                    }
+            
+                    .imageContainer{
+                        gap: 5px;
+
+                        img{
+                            width: 20px;
+                        }
+                    }
+                
+            }
+        }
+
+
+       .result{
+        padding: 0px 5%;
+        max-height:70vh ;
+        overflow-y: scroll;
+
+        .resultTitle{
+            margin: 40px 0px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        img{
+            width: 40px;
+            border-radius: 50%;
+        }
+        .resultData{
+            display: flex;
+            align-items: start;
+            gap: 20px;
+
+            .loader{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                hr{
+                    border-radius: 4px;
+                    border: none;
+                    background-color: #f6f7f8;
+                    background: linear-gradient(to right,#9ed7ff,#d2c9c9,#9ed7ff);
+                    background-size: 800px 50px;
+                    // Height:50px and width:800px 
+                    height: 20px;
+                    animation:loader 3s infinite linear;
+                }
+            }
+
+            @keyframes loader {
+                0%{
+                        background-position: -800px 0px ;
+                }
+                100%{
+                    background-position: 800px 0px ;
+            }
+            }
+
+            p{
+                font-size: 17px;
+                font-weight: 300;
+                line-height: 1.8;
+            }
+        }
+       }
+       .result::-webkit-scrollbar{
+        display: none;
+       }
+       
+    }
+}
+
